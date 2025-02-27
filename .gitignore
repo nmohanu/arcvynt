@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+buffer.txt
+portf.txt
+main
