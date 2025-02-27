@@ -1,4 +1,4 @@
-# Replace this with your stocks.
+Replace this with your stocks.
 COL1: stock ticker as given by yahoo finance.
 COL2: amount.
 COL3: the currency that yahoo finance provides for given stock.
