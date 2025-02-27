@@ -15,5 +15,4 @@ if __name__ == "__main__":
     ticker = sys.argv[1]
     current_price = get_stock_price(ticker)
     if current_price is not None:
-        result = {"ticker": ticker, "price": current_price}
-        print(json.dumps(result))
+        print(current_price)
