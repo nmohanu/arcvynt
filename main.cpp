@@ -17,7 +17,7 @@ const int COLWIDTH[4] = {12, 14, 14, 14};
 
 const std::string GREENCOL = "\033[32m";
 const std::string REDCOL = "\033[31m";
-const std::string YELLOWCOL = "\033[33m";
+const std::string IMGCOL = "\033[33m";
 const std::string RESCOL = "\033[0m";
 
 const std::string price_script = "fetchprice.py";
@@ -145,11 +145,11 @@ int main() {
 
 		size_t img_it = 0;
 		for (const auto& s : print_queue) {
-			std::cout << s << YELLOWCOL << img[img_it++] << RESCOL << '\n';
+			std::cout << s << IMGCOL << img[img_it++] << RESCOL << '\n';
 		}
 		while (img_it++ < img.size() - 1) {
 			for (int i : COLWIDTH) std::cout << std::setw(i) << "";
-			std::cout << YELLOWCOL << img[img_it] << RESCOL << '\n';
+			std::cout << IMGCOL << img[img_it] << RESCOL << '\n';
 		}
 
 		bool total_profit = total_sod >= 0;
