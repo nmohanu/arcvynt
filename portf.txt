@@ -1,0 +1,11 @@
+# Replace this with your stocks.
+COL1: stock ticker as given by yahoo finance.
+COL2: amount.
+COL3: the currency that yahoo finance provides for given stock.
+example:
+
+AMD,3,USD
+VUSA.AS,31,EUR
+IWDA.AS,5,EUR
+EUREUR=X,30,EUR
+BTC-USD,1,USD
