@@ -1,10 +1,10 @@
 # arcvynt, a portfolio tracker in your terminal.
-Arcvynt is a lightweight portfolio tracker that tracks your portfolio worth in real-time. <br>
+Arcvynt is a lightweight portfolio tracker that tracks your portfolio worth in real-time. Arcvynt supports any stock listed by Yahoo-Finance, including crypto and ETF's. <br>
 Preview: <br>
 ![image](https://github.com/user-attachments/assets/4649fea3-c7a2-44c0-aa51-58159f127c50)
 
 # Set-up:
-To set-up the program, simply replace the contents of 'portf.txt' with your own data. The ticker names can be found on Yahoo-finance. The following format is expected: <br>
+To set-up the program, simply replace the contents of 'portf.txt' with your own data. The ticker names can be found on Yahoo-Finance. The following format is expected: <br>
 ticker,amount,currency <br>
 ticker,amount,currency <br>
 ... <br>
