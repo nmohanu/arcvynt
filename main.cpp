@@ -26,6 +26,13 @@ const std::string portfname = "portf.txt";
 const std::string imgname = "img.txt";
 
 enum SCURR { EUR, USD };
+
+#ifdef USE_EUR
+const SCURR display_in = SCURR::EUR;
+#else
+const SCURR display_in = SCURR::USD;
+#endif
+
 const std::map<std::string, SCURR> stocurr = {{"EUR", SCURR::EUR}, {"USD", SCURR::USD}};
 
 struct StockEntry {
@@ -53,6 +60,14 @@ float usd_to_eur(float amount) {
 	return std::round(amount * std::stof(line) * 100) / 100;
 }
 
+float eur_to_usd(float amount) {
+	std::string line;
+	std::string pycommand = "python " + price_script + " EURUSD=X > buffer.txt";
+	system(pycommand.c_str());
+	std::getline(std::ifstream("buffer.txt"), line);
+	return std::round(amount * std::stof(line) * 100) / 100;
+}
+
 int main() {
 	disable_input();
 	std::string line;
@@ -60,7 +75,6 @@ int main() {
 	std::vector<std::string> print_queue{}, img{};
 	std::ifstream file(portfname);
 	std::ifstream imgfile(imgname);
-	SCURR display_in = SCURR::EUR;
 
 	if (!file || !imgfile) {
 		std::cout << "A file could not be opened.\n";
@@ -97,8 +111,8 @@ int main() {
 			float worth_sod = std::stof(line);
 
 			if (display_in != s.currency) {
-				worth = usd_to_eur(worth);
-				worth_sod = usd_to_eur(worth_sod);
+				worth = display_in == SCURR::EUR ? usd_to_eur(worth) : eur_to_usd(worth);
+				worth_sod = display_in == SCURR::EUR ? usd_to_eur(worth_sod) : eur_to_usd(worth_sod);
 			}
 			worth *= s.amount;
 			worth = std::round(worth * 100) / 100;

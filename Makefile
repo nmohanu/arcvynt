@@ -11,11 +11,11 @@ OBJ = main.o
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $(TARGET)
+use_eur: CXXFLAGS += -DUSE_EUR
+use_eur: main
 
-$(OBJ): $(SRC)
-	$(CXX) $(CXXFLAGS) -c $(SRC)
+main: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main
 
 clean:
 	rm -f $(OBJ) $(TARGET)
