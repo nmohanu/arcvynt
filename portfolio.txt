@@ -1,3 +1,0 @@
-AMD 3
-VUSA.AS 31
-WDA.AS 5
